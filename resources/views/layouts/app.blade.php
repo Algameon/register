@@ -26,6 +26,7 @@
     <link href="{{asset('css/bootstrap-editable.css')}}" rel="stylesheet">
     <script src="{{asset('js/bootstrap-editable.js')}}"></script>
 </head>
+
 <body>
     @include('inc.navbar')
     <div class="container" id="app">
@@ -41,7 +42,12 @@
 </script>
     <script>
         $(document).ready( function () {
-            $('#table_id').DataTable(); //To enable the data tables TODO Maybe move away from main layout?
+            $('#table_id').DataTable({
+                "bPaginate": false,
+                "bLengthChange": false,
+                "bFilter": true,
+                "bInfo": false,
+                "bAutoWidth": false }); //To enable the data tables TODO Maybe move away from main layout?
         } );
     </script>
 </body>

@@ -26,8 +26,16 @@
                             @foreach($employees as $employee)
                                 <tr>
                                     <td><a href="/employee/{{$employee->id}}">{{$employee->name}}</a></td>
-                                    <td><a href="/company/{{$employee->company->id}}"> {{$employee->company->title}}</a> </td>
-                                    <td>{{$employee->role}}</td>
+                                    @if(!is_null($employee->company['id']))
+                                        <td><a href="/company/{{$employee->company->id}}"> {{$employee->company->title}}</a> </td>
+                                    @else
+                                        <td>NaN</td>
+                                    @endif
+                                    @if(!is_null($employee->role))
+                                        <td>{{$employee->role}} </td>
+                                    @else
+                                        <td>NaN</td>
+                                    @endif
 
                                 </tr>
 

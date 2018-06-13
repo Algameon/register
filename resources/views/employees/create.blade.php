@@ -6,16 +6,14 @@
                 <!--The card HEADER -->
                 <div class="card-header">
                     <h1>Create new Employee</h1>
-
                 </div>
-
                 <!-- Card BODY-->
                 <div class="card-body">
                     @include('inc.messages')
                     {!! Form::open(['action' => 'EmployeesController@store','method' => 'POST']) !!}
                     <div class="form-group">
                         {{Form::label('name','Name:')}}
-                        {{Form::text('name','',['class'=> 'form-control','placeholder'=>'Name'])}}
+                        {{Form::text('name','',['class'=> 'form-control','placeholder'=>'Name*'])}}
                     </div>
                     <!-- Radio Buttons-->
                     <div class="form-group">
@@ -39,7 +37,7 @@
                     </div>
                     <div class="form-group">
                         {{Form::label('company_id','Work:')}}
-                        {{Form::select('company_id', $companies , null, ['placeholder' => 'Pick a work...'])}}<!--['L' => 'Large', 'S' => 'Small']-->
+                        {{Form::select('company_id', $compString , null, ['placeholder' => 'Pick a work...'])}}<!--['L' => 'Large', 'S' => 'Small']-->
                     </div>
                     {!! Form::submit('Submit',['class'=>'btn btn-primary']) !!}
                     {!! Form::close() !!}

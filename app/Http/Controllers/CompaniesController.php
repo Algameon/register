@@ -47,7 +47,7 @@ class CompaniesController extends Controller
         $company->notes = $request->input('notes');
         $company->save();
 
-        return redirect('/company')->with('Success', 'Company stored');
+        return redirect('/company')->with('Success', 'Company created');
 
     }
 

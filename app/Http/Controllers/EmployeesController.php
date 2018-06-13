@@ -22,7 +22,9 @@ class EmployeesController extends Controller
 
     public function create(){
 
-        return view('employees.create')->with('companies', Company::all());
+        $compString = Company::pluck('title','id');
+
+        return view('employees.create')->with('compString',$compString);
     }
     public function store(Request $request)
     {
@@ -35,7 +37,7 @@ class EmployeesController extends Controller
         $employee->company_id = $request->input('company_id');
         $employee->save();
 
-        return redirect('/employees')->with('Success', 'Company stored');
+        return redirect('/employee')->with('Success', 'Employee created');
 
     }
 }
